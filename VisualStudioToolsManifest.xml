@@ -1,0 +1,14 @@
+<FileList>
+  <File Reference = "GUIObj.dll">
+    <ToolboxItems UIFramework="WPF" VSCategory="AL GUIObj" BlendCategory="AL GUIObj">
+      <Item Type="GUIObj.Controls.CustomTable" />
+      <Item Type="GUIObj.Controls.DataBar" />
+      <Item Type="GUIObj.Controls.PicSelector" />
+	  <Item Type="GUIObj.Controls.RotationSelector" />
+	  <Item Type="GUIObj.Controls.SpinnerDouble" />
+	  <Item Type="GUIObj.Controls.SpinnerInt" />
+	  <Item Type="GUIObj.Controls.TimeCheckerGui" />
+	  <Item Type="GUIObj.Controls.TimeLineControl" />
+    </ToolboxItems>
+  </File>
+</FileList>

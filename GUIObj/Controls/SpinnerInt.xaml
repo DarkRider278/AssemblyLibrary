@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="GUIObj.Controls.SpinnerInt"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="20" Width="138">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/GUIObj;component/Styles/ALControlStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid x:Name="gr_main">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="22"/>
+            <ColumnDefinition Width="22"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="tb_value" TextWrapping="Wrap" TextChanged="TextBox_TextChanged" PreviewTextInput="ValidationTextBox" Text="0" TextAlignment="Right" Margin="1,0,1,0"/>
+        <Grid Grid.Column="1" Margin="1,0,1,0">
+            <RepeatButton  x:Name="btn_up" Content="" HorizontalAlignment="Right" Margin="0,0,0,0" VerticalAlignment="Top" Width="20"  Height="10" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed" FontSize="9" Click="Btn_up_Click">
+                <RepeatButton.Background>
+                    <ImageBrush ImageSource="/GUIObj;component/Res/Styles_Button/btn_up.png" Stretch="UniformToFill" TileMode="None"/>
+                </RepeatButton.Background>
+            </RepeatButton>
+            <RepeatButton  x:Name="btn_down" Content="\" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Bottom" Width="20"  Height="10" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Fixed" FontSize="9" Click="Btn_down_Click">
+                <RepeatButton.Background>
+                    <ImageBrush ImageSource="/GUIObj;component/Res/Styles_Button/btn_down.png" Stretch="UniformToFill"/>
+                </RepeatButton.Background>
+            </RepeatButton>
+        </Grid>
+        <Button x:Name="btn_default" Content="" Click="Btn_default_Click" Style="{DynamicResource BtnStyleImg}" BorderThickness="2" Grid.Column="2" HorizontalAlignment="Left" Width="20" Height="20" Margin="1,0,1,0">
+            <Button.Background>
+                <ImageBrush ImageSource="/GUIObj;component/Res/Styles_Button/db_refresh.png"/>
+            </Button.Background>
+        </Button>
+
+
+    </Grid>
+</UserControl>

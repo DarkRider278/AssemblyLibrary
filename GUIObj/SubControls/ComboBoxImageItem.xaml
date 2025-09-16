@@ -1,0 +1,21 @@
+﻿<UserControl x:Name="uc_comboboximageitem" x:Class="GUIObj.SubControls.ComboBoxImageItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+
+             xmlns:subControls="clr-namespace:GUIObj.SubControls"
+             xmlns:converters="clr-namespace:GUIObj.Converters"
+             mc:Ignorable="d" 
+             Height="30"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <converters:FontSizeConverter x:Key="FontSizeConverter"/>
+    </UserControl.Resources>
+    <Border x:Name="bo_obj">
+        <StackPanel Margin="0,0,119.75,0" Orientation="Horizontal">
+            <Image x:Name="img_image" Margin="0" HorizontalAlignment="Left" Width="{Binding Height, ElementName=uc_comboboximageitem}"/>
+            <Label x:Name="la_text" Content="Label" FontSize="{Binding ActualHeight, ConverterParameter=2, Converter={StaticResource FontSizeConverter}, ElementName=la_text, Mode=OneWay}"/>
+        </StackPanel>
+    </Border>
+</UserControl>

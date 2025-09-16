@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <RootNamespace>UDPServerPugin</RootNamespace>
+    <AssemblyName>UDPServerPugin</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputPath>..\Libs80\</OutputPath>
+    <TargetFramework>net8.0</TargetFramework>
+    <Title>UDPServerPugin</Title>
+    <PackageOutputPath>$(OutputPath)\NuGet</PackageOutputPath>
+    <PackageId>AL__$(AssemblyName)</PackageId>
+    <PackageProjectUrl>https://github.com/DarkRider278/AssembLibrary</PackageProjectUrl>   
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="3.2.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters" Version="2.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+</Project>

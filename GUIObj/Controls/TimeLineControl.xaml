@@ -1,0 +1,75 @@
+﻿<UserControl x:Name="uc_timelinecontrol" x:Class="GUIObj.Controls.TimeLineControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GUIObj.Controls"
+             xmlns:converters="clr-namespace:GUIObj.Converters"
+             xmlns:timeLine="clr-namespace:GUIObj.SubControls.TimeLine"
+             xmlns:structs="clr-namespace:GUIObj.Structs"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converters:DisplayTimeConverter x:Key="dtc" />
+        <converters:DisplayTimeConverterMulti x:Key="dtcm" />
+        <Style TargetType="{x:Type timeLine:TimeLineControlItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type timeLine:TimeLineControlItem}">
+                        <Grid>
+                            <Border Background="Blue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0" />
+                            <ContentPresenter HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="PART_ContentHostPART_ContentHost" />
+                            <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Stretch" x:Name="PART_LeftIndicator">
+                                <ContentPresenter.Content>
+                                    <Button />
+                                </ContentPresenter.Content>
+                            </ContentPresenter>
+                            <ContentPresenter HorizontalAlignment="Right" VerticalAlignment="Stretch" x:Name="PART_RightIndicator">
+                                <ContentPresenter.Content>
+                                    <Button />
+                                </ContentPresenter.Content>
+                            </ContentPresenter>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <DataTemplate  DataType="{x:Type structs:TimeLineControlData}" x:Key="dt_timelinecontrolitem">
+            <Border BorderThickness="1" BorderBrush="Green" CornerRadius="3" Margin="0,10,0,10" Height="60" Background="{Binding Path= BGColor}">
+                <StackPanel Orientation="Vertical">
+                    <TextBlock Text="{Binding Path=ItemName}" />
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding Converter="{StaticResource dtcm}">
+                                <Binding Path="StartTime"/>
+                                <Binding Path="EndTime"/>
+                                <Binding Path="Parent.ActualWidth" RelativeSource="{RelativeSource Self}"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                    <!--TextBlock Text="{Binding Path=EndTime} Text="{Binding Path=StartTime, Converter={StaticResource dtc}}"" /-->
+                    <TextBlock Text="{Binding Path=DurationTime}" />
+                </StackPanel>
+            </Border>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid>
+        <ScrollViewer x:Name="sv_timelines" Margin="0,0,0,60" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <StackPanel>
+                <ItemsControl>
+                    <timeLine:TimeLineControlLine Height="80" ItemTemplate="{StaticResource dt_timelinecontrolitem}" HorizontalAlignment="Left" x:Name="ttl_line_1" UnitSize="100" MinimumUnitWidth="40" Background="AntiqueWhite" DrawTimeGrid="True" MinWidth="1000" SynchedWithSiblings="True" DrawTimeGridText="True" />
+                    <timeLine:TimeLineControlLine Height="80" ItemTemplate="{StaticResource dt_timelinecontrolitem}" HorizontalAlignment="Left" x:Name="ttl_line_2" UnitSize="100" MinimumUnitWidth="40" Background="Azure" DrawTimeGrid="True" MinWidth="1000" SynchedWithSiblings="True" />
+                    <timeLine:TimeLineControlLine Height="80" ItemTemplate="{StaticResource dt_timelinecontrolitem}" HorizontalAlignment="Left" x:Name="ttl_line_3" UnitSize="100" MinimumUnitWidth="40" Background="AntiqueWhite" DrawTimeGrid="True" MinWidth="1000" SynchedWithSiblings="True" />
+                    <timeLine:TimeLineControlLine Height="80" ItemTemplate="{StaticResource dt_timelinecontrolitem}" HorizontalAlignment="Left" x:Name="ttl_line_4" UnitSize="100" MinimumUnitWidth="40" Background="Azure" DrawTimeGrid="True" MinWidth="1000" SynchedWithSiblings="True" />
+                    <timeLine:TimeLineControlLine Height="80" ItemTemplate="{StaticResource dt_timelinecontrolitem}" HorizontalAlignment="Left" x:Name="ttl_line_5" UnitSize="100" MinimumUnitWidth="40" Background="AntiqueWhite" DrawTimeGrid="True" MinWidth="1000" SynchedWithSiblings="True" />
+                    <timeLine:TimeLineControlLine Height="80" ItemTemplate="{StaticResource dt_timelinecontrolitem}" HorizontalAlignment="Left" x:Name="ttl_line_6" UnitSize="100" MinimumUnitWidth="40" Background="Azure" DrawTimeGrid="True" MinWidth="1000" SynchedWithSiblings="True" />
+                    <timeLine:TimeLineControlLine Height="80" ItemTemplate="{StaticResource dt_timelinecontrolitem}" HorizontalAlignment="Left" x:Name="ttl_line_7" UnitSize="100" MinimumUnitWidth="40" Background="AntiqueWhite" DrawTimeGrid="True" MinWidth="1000" SynchedWithSiblings="True" />
+                    <timeLine:TimeLineControlLine Height="80" ItemTemplate="{StaticResource dt_timelinecontrolitem}" HorizontalAlignment="Left" x:Name="ttl_line_8" UnitSize="100" MinimumUnitWidth="40" Background="Azure" DrawTimeGrid="True" MinWidth="1000" SynchedWithSiblings="True" />
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
+        <TextBlock Text="Zoom Slider:" VerticalAlignment="Bottom" Margin="5,0,5,20" />
+        <Slider x:Name="sl_scale" Minimum="1" Maximum="200" Value="175" SmallChange="1" VerticalAlignment="Bottom" ValueChanged="Sl_scale_ValueChanged" />
+        <Label x:Name="label" Content="{Binding DisplayStatus, ElementName=uc_timelinecontrol}" HorizontalAlignment="Center" Margin="0,0,0,22" VerticalAlignment="Bottom" FontSize="20"/>
+    </Grid>
+</UserControl>

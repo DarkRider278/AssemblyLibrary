@@ -1,0 +1,16 @@
+<Project>
+  <PropertyGroup>
+    <VersionPrefix>1.2025.9.15</VersionPrefix>
+    <Authors>DarkRider278</Authors>
+    <Copyright>2012-2025</Copyright>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+    <UseCommonOutputDirectory>false</UseCommonOutputDirectory>
+    <PackageProjectUrl>https://github.com/DarkRider278/AssemblyLibrary</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="d:\SDK\AssemblyUpdater\AssemblyInfoUtil.exe -date:1 $(ProjectDir)Directory.Build.props" IgnoreExitCode="true"/>
+  </Target>
+</Project>

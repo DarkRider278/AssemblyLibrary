@@ -1,0 +1,33 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="GUIObj.Controls.PicSelector"
+	x:Name="picSelector"
+	Width="500" Height="250">
+	<UserControl.Resources>
+		<ItemsPanelTemplate x:Key="ItemsPanelWrapTemplate">
+			<WrapPanel IsItemsHost="True"/>
+		</ItemsPanelTemplate>
+		<DataTemplate x:Key="DisplayImageWithText">
+			<Border x:Name="Border" Padding="2" SnapsToDevicePixels="true" Height="Auto" Width="Auto">
+				<StackPanel x:Name="stackPanel"  Orientation="Vertical" Margin="0" Width="80">
+					<Image x:Name="image" Source="{Binding Source}" Stretch="Fill" Width="{Binding Height, ElementName=image}" HorizontalAlignment="Left"/>
+					<ContentPresenter  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" RenderTransformOrigin="-3.743,1.065" Content="{Binding ToolTip}" HorizontalAlignment="Left" Height="{Binding Height, ElementName=stackPanel}" Width="{Binding Width, ElementName=stackPanel}"/>
+				</StackPanel>
+				
+			</Border>
+		</DataTemplate>
+	</UserControl.Resources>
+
+	<Grid x:Name="LayoutRoot">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0.27*"/>
+			<ColumnDefinition Width="0.73*"/>
+		</Grid.ColumnDefinitions>
+		<ListBox x:Name="lb_dir" SelectionChanged="lb_dir_SelectionChanged" />
+		<ListBox x:Name="lb_img" Grid.Column="1"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsPanel="{DynamicResource ItemsPanelWrapTemplate}" SelectionChanged="lb_img_SelectionChanged" ItemTemplate="{DynamicResource DisplayImageWithText}" />
+	</Grid>
+</UserControl>

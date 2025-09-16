@@ -1,0 +1,103 @@
+﻿<UserControl x:Name="uc_databar" x:Class="GUIObj.Controls.DataBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="30" Width="300" Loaded="UcDatabarLoaded">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/GUIObj;component/Styles/ALControlStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <!--Style x:Key="BtnStyleFocusImg" TargetType="{x:Type Control}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </>
+            <Style x:Key="BtnStyleImg" TargetType="{x:Type Button}">
+                <Setter Property="FocusVisualStyle">
+                    <Setter.Value>
+                        <Style>
+                            <Setter Property="Control.Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Rectangle Margin="2" SnapsToDevicePixels="True" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Background" Value="#FFDDDDDD"/>
+                <Setter Property="BorderBrush" Value="#FF707070"/>
+                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" CornerRadius="3" OverridesDefaultStyle="False">
+                                <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsDefaulted" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="#FFD31329"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="BorderBrush" TargetName="border" Value="#FF2C628B"/>
+                                </Trigger>
+                                <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                    <Setter Property="Background" TargetName="border" Value="#FFBCDDEE"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="#FF245A83"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter Property="Background" TargetName="border" Value="#FFF4F4F4"/>
+                                    <Setter Property="BorderBrush" TargetName="border" Value="#FFADB2B5"/>
+                                    <Setter Property="Foreground" Value="#FF838383"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style-->
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <UserControl.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF817E7E" Offset="1"/>
+            <GradientStop Color="#FFE8E7E7"/>
+        </LinearGradientBrush>
+    </UserControl.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="138" />
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="cb_name" Margin="5,4" VerticalAlignment="Center" IsEditable="True" Height="22" SelectionChanged="CbNameSelectionChanged" IsTextSearchEnabled="False" Style="{Binding Source={StaticResource ComboBoxCompStyle}}" ItemContainerStyle="{Binding Source={StaticResource ComboBoxItemCompStyle}}" DropDownOpened="Cb_name_DropDownOpened"/>
+        <Button x:Name="btn_delete" Content="" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,5,0" VerticalAlignment="Center" Width="22" Height="22" Click="BtnDeleteClick"  Style="{DynamicResource BtnStyleImg}" BorderThickness="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/GUIObj;component/Res/Styles_Button/db_trash.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn_save" Content="" Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,38,0" VerticalAlignment="Center" Width="22" Height="22" Click="BtnSaveClick" Style="{DynamicResource BtnStyleImg}" BorderThickness="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/GUIObj;component/Res/Styles_Button/db_save.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn_refresh" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="5,0,0,0" VerticalAlignment="Center" Width="22" Height="22" Click="BtnRefreshClick" Style="{DynamicResource BtnStyleImg}" BorderThickness="2">
+            <Button.Background>
+                <ImageBrush ImageSource="/GUIObj;component/Res/Styles_Button/db_refresh.png"/>
+            </Button.Background>
+        </Button>
+
+    </Grid>
+</UserControl>

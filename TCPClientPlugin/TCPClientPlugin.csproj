@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TCPClientPlugin</RootNamespace>
+    <AssemblyName>TCPClientPlugin</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="3.2.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <OutputPath>..\Libs80\</OutputPath>
+    <AssemblyTitle>TCP Client Plugin</AssemblyTitle>
+    <Description></Description>
+    <Product>TCPClientPlugin</Product>
+    <PackageId>AL_$(AssemblyName)</PackageId>
+    <Title>TCP Client Plugin</Title>
+    <PackageOutputPath>$(OutputPath)\NuGet</PackageOutputPath>
+  </PropertyGroup>
+</Project>

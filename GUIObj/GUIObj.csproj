@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <OutputType>Library</OutputType>
+    <RootNamespace>GUIObj</RootNamespace>
+    <AssemblyName>GUIObj</AssemblyName>
+    <ExpressionBlendVersion>5.0.40218.0</ExpressionBlendVersion>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>   
+    <OutputPath>..\Libs80\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+    <Page Remove="Properties\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\Styles_Button\btn_down.png" />
+    <Resource Include="Res\Styles_Button\btn_up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\Styles_Button\db_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\Styles_Button\db_save.png" />
+    <Resource Include="Res\Styles_Button\db_trash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="3.2.0" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="SoftFluent.Windows_net8" Version="2.0.0" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters" Version="2.0.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utilitis\HelpUtility.csproj" />
+  </ItemGroup>
+  <PropertyGroup>
+    <PackageId>AL_$(AssemblyName)</PackageId>
+    <Title>GUIObj</Title>
+    <Description>Custom WPF GUI Controls</Description>
+    <PackageOutputPath>$(OutputPath)\NuGet</PackageOutputPath>
+    
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,11 @@
+﻿<Window x:Class="GUIObj.Dialogs.ListWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ListWindow" Height="379" Width="443" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <ListBox x:Name="lb_elements" Margin="10,10,10,36" MouseDoubleClick="lb_elements_MouseDoubleClick" SelectionMode="Extended"/>
+        <Button x:Name="btn_cancel" Content="Cancel" HorizontalAlignment="Center" Margin="350,0,10,10" VerticalAlignment="Bottom" Width="75" Click="btn_cancel_Click"/>
+        <Button x:Name="btn_ok" Content="OK" HorizontalAlignment="Center" Margin="137,0,163,10" VerticalAlignment="Bottom" Width="135" Click="btn_ok_Click"/>
+
+    </Grid>
+</Window>
